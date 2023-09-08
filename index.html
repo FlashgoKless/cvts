@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Display a map on a webpage</title>
+<title>Map for CVTS</title>
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
@@ -17,22 +17,26 @@ body { margin: 0; padding: 0; }
     max-width: 400px;
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     }
+
+    p {
+    font-family: 'Helvetica';
+    margin: 0;
+    font-size: 13px;
+    }
 </style>
-<div id="map"></div>
+<div id="map"></div>    
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1IjoiZmxhc2hnb2tsZXNzIiwiYSI6ImNsbTN0bWhkMTJocmszZHM2ZXpvYXF4enEifQ.qAfJFK7b7vG2xVpnnffFYw';
     var map = new mapboxgl.Map({
-        container: 'map', // container ID
-        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-        style: 'mapbox://styles/mapbox/light-v11', // style URL
-        center: [37.6173, 55.7558], // starting position [lng, lat]
-        zoom: 10 // starting zoom
+        container: 'map',
+        style: 'mapbox://styles/mapbox/light-v11',
+        center: [37.6173, 55.7558],
+        zoom: 10
     });
 
     map.on('load', () => {
         map.addSource('way', {
             type: 'geojson',
-            // Use a URL for the value for the `data` property.
             data: 'https://raw.githubusercontent.com/FlashgoKless/cvts/main/railway_example.geojson'
             });
  
@@ -64,6 +68,5 @@ body { margin: 0; padding: 0; }
 
 
 </script>
-
 </body>
 </html>
